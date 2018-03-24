@@ -52,7 +52,10 @@ namespace InRealLife_2
             btnCreateScenario.IsEnabled = true;
                 
             //
-            DataTable returnedScenarioTable = newDBComm.displayAllScenariosByTitle();
+            DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
+
+            MessageBox.Show(returnedScenarioTable.Rows[0][0].ToString());
+            MessageBox.Show(returnedScenarioTable.Rows[0][1].ToString());
 
             // if data table has rows
             if (returnedScenarioTable.Rows.Count > 0)
@@ -142,11 +145,13 @@ namespace InRealLife_2
         // method to add scenario data to scenario list box
         private void AddDataToListBox(DataTable returnedScenarioTable)
         {
+            
             // loop to put scenario names from data table into scenario listbox items
             for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
-            {
-                // add to
+            {                
+                // add data table results to list view
                 lstvwScenarios.Items.Add(returnedScenarioTable.Rows[i][0].ToString());
+                //this.lstvwScenarios.Items.Add(new MyItem { Id = 1, Name = "David" });
             }
         }
 

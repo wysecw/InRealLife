@@ -53,11 +53,11 @@ namespace InRealLife_2
 
         }
 
-        //
-        public DataTable displayAllScenariosByTitle()
+        // to grab all data from scenario table
+        public DataTable displayAllScenarios()
         {
             DataTable dt = new DataTable();
-            String query = "SELECT ScenarioName FROM Scenario";
+            String query = "SELECT * FROM Scenario";
             using (conn)
             using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
             {
@@ -66,13 +66,7 @@ namespace InRealLife_2
             }
         }
 
-        /*
-         * 
-         * SELECT Scenario.ScenarioName, Stage.StageDescription, Answer.AnswerDescription, Answer.nextStageID
-         * FROM (Scenario INNER JOIN Stage ON Scenario.[ScenarioID] = Stage.[ScenarioID]) INNER JOIN Answer ON Stage.[StageID] = Answer.[StageID]
-         * 
-         * 
-         */
+        // to grab all data from scenario table joined to grab relevant data from stage table joined to grab relevant data from answer table
         public DataTable displayRunningScenario()
         {
             DataTable dt = new DataTable();
@@ -85,13 +79,13 @@ namespace InRealLife_2
             }
         }
 
-        // method to get scenarios
-        public int DeleteSelectedScenario(int lstScenariosSelectedIndex)
+        // method to delete a scenario
+        public int DeleteSelectedScenario(int scenarioID)
         {
             // create return variable for number of rows set to zero
             int scenarioRowsDeleted = 0;
 
-            String query = "DELETE * FROM Scenario WHERE ScenarioID = " + lstScenariosSelectedIndex;
+            String query = "DELETE * FROM Scenario WHERE ScenarioID = " + scenarioID;
             using (conn)
             using (OleDbCommand Cmd = new OleDbCommand(query, conn))
             {

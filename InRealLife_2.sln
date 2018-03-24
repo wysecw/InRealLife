@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRealLife_2", "InRealLife_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBComm", "DBComm\DBComm.csproj", "{F04E1A8E-8876-4F24-9430-8B2EC46E222D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes", "Classes\Classes.csproj", "{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F04E1A8E-8876-4F24-9430-8B2EC46E222D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04E1A8E-8876-4F24-9430-8B2EC46E222D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04E1A8E-8876-4F24-9430-8B2EC46E222D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

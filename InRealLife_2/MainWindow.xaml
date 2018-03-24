@@ -18,8 +18,8 @@
         <ListView x:Name="lstvwScenarios" HorizontalAlignment="Left" Height="152" Margin="286,166,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="LstvwScenarios_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="Auto" Header="Scenario Number" DisplayMemberBinding="{Binding column1}" />
-                    <GridViewColumn Width="Auto" Header="Scenario Name" DisplayMemberBinding="{Binding column2}" />
+                    <GridViewColumn Width="Auto" Header="Scenario Number" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Width="Auto" Header="Scenario Name" DisplayMemberBinding="{Binding Name}" />
                 </GridView>
             </ListView.View>
         </ListView>
