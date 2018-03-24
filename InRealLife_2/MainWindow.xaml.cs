@@ -142,13 +142,10 @@ namespace InRealLife_2
         // method to add scenario data to scenario list box
         private void AddDataToListBox(DataTable returnedScenarioTable)
         {
-            //
-            
-
             // loop to put scenario names from data table into scenario listbox items
             for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
             {
-                //listView1.Items.Add(dt);
+                // add to
                 lstvwScenarios.Items.Add(returnedScenarioTable.Rows[i][0].ToString());
             }
         }
@@ -158,7 +155,6 @@ namespace InRealLife_2
         {
             // enable buttons
             ScenarioListHasValues();
-
         }
     }
 }
