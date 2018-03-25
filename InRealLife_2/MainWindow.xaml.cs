@@ -124,7 +124,7 @@ namespace InRealLife_2
         // preview scenario button click event
         private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
         {
-            Running run = new Running();
+            Running run = new Running(1);
             run.Show();
             // hide current form
             // this.Hide();

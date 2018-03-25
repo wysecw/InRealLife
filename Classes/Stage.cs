@@ -18,6 +18,14 @@ namespace Classes
 {
     public class Stage
     {
+        private int _StageID;
+
+        private int _ScanarioID;
+
+        private String _StageDescription;
+
+        private String _AudioFilePath;
+
         // Auto Implemented Properties Stage
         public int StageID { get; set; }
         public int ScenarioID { get; set; }
@@ -25,6 +33,8 @@ namespace Classes
         public String AudioFilePath { get; set; }
         public String ImageFilePath { get; set; }
 
+
+        private String _ImageFilePath;
         // default constructor Stage
         public Stage()
         {
