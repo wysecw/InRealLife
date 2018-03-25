@@ -26,40 +26,10 @@ namespace InRealLife_2
     public class DBComm
     {
         // CONSTANT storing the connection string
-        public const string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
+        public const string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
 
         // create new connection
         OleDbConnection conn = new OleDbConnection(connectionString);
-
-        // method to grab the scenario title
-        public String displayScenarioTitle(String scTitle)
-        {
-            DataSet ds = new DataSet();
-            string query = "SELECT ScenarioName FROM Scenario Where ScenarioName = " + scTitle;
-            using (conn)
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
-            {
-                conn.ConnectionString = connectionString;
-                conn.Open();
-                adapter.Fill(ds);
-                return ds.ToString();
-            }
-        }
-
-        // method to grab scenario description
-        public String displayScenarioDescription(String scTitle)
-        {
-            DataSet ds = new DataSet();
-            String query = "SELECT ScenarioDesc FROM Scenario Where ScenarioName = " + scTitle;
-            using (conn)
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
-            {
-                conn.ConnectionString = connectionString;
-                conn.Open();
-                adapter.Fill(ds);
-                return ds.ToString();
-            }
-        }
 
         // method to grab all data from scenario table on the database
         public DataTable displayAllScenarios()
@@ -72,35 +42,6 @@ namespace InRealLife_2
                 conn.ConnectionString = connectionString;
                 conn.Open();
                 adapter.Fill(dt);
-                return dt;
-            }
-        }
-
-        /*
-         * method to grab data from scenario table
-         * joined to grab relevant data from stage table 
-         * joined to grab relevant data from answer table
-        */    
-        public DataTable displayRunningScenario()
-        {
-            DataTable dt = new DataTable();
-
-            // set query string
-            String query = "SELECT ScenarioName, StageDescription, AnswerDescription, nextStageID * FROM(Scenario INNER JOIN Stage ON Scenario.[ScenarioID] = Stage.[ScenarioID]) INNER JOIN Answer ON Stage.[StageID] = Answer.[StageID]";
-
-            using (conn)
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                // open connection
-                conn.Open();
-
-                // use adapter to fill data table
-                adapter.Fill(dt);
-
-                // return data table
                 return dt;
             }
         }

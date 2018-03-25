@@ -51,7 +51,9 @@ namespace InRealLife_2
             lstvwScenarios.Items.Clear();
 
             // enable create button
-            btnCreateScenario.IsEnabled = true;
+            // ***** change btnExitBuilder, btnCreateScenario, and btnEditScenario(below) control back to true when edit scenario is incorporated ***********
+            btnExitBuilder.IsEnabled = false;
+            btnCreateScenario.IsEnabled = false;
                 
             // data table containing  data from scenario table
             DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
@@ -59,6 +61,9 @@ namespace InRealLife_2
             // if data table has rows
             if (returnedScenarioTable.Rows.Count > 0)
             {
+                // enable proper buttons
+                ScenarioListHasValues();
+                    
                 // then add data to listbox
                 AddDataToListBox(returnedScenarioTable);
             }
@@ -84,7 +89,6 @@ namespace InRealLife_2
 
             // load form to edit scenario
             // .show();
-
         }
 
         // delete scenario button click event
@@ -106,7 +110,6 @@ namespace InRealLife_2
             {
                 // Show user which scenario was deleted
                 MessageBox.Show("The scenario called " + selectedScenario.ScenarioName + " was deleted");
-                MessageBox.Show(scenarioRowsDeleted.ToString());
 
                 // reset form
                 InitializeForm();
@@ -130,7 +133,6 @@ namespace InRealLife_2
             // this.Hide();
 
             // load form to preview scenario
-
         }
 
         // method for form behaviors if list is empty
@@ -144,15 +146,16 @@ namespace InRealLife_2
         // method for form behaviors if list has data
         private void ScenarioListHasValues()
         {
-            btnEditScenario.IsEnabled = true;
+            // ***** change this btnEditScenario control back to true when edit scenario is incorporated ***********
+            btnEditScenario.IsEnabled = false;
+
             btnDeleteScenario.IsEnabled = true;
             btnPreviewScenario.IsEnabled = true;
         }
 
         // method to add scenario data to scenario list box
         private void AddDataToListBox(DataTable returnedScenarioTable)
-        {
-            
+        {            
             // loop to put scenario names from data table into scenario listbox items
             for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
             {
