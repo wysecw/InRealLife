@@ -38,7 +38,5 @@ namespace Classes
             this.ScenarioID = scenarioID;
             this.ScenarioName = scenarioName;
         }
-
-
     }
 }

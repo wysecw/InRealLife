@@ -51,14 +51,20 @@ namespace InRealLife_2
             lstvwScenarios.Items.Clear();
 
             // enable create button
-            btnCreateScenario.IsEnabled = true;
-                
+            // ***** change btnCreateScenario, and btnEditScenario(below) control back to true when edit scenario is incorporated ***********
+            btnCreateScenario.IsEnabled = false;
+            btnDeleteScenario.IsEnabled = false;
+            btnPerformScenario.IsEnabled = false;
+
             // data table containing  data from scenario table
             DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
 
             // if data table has rows
             if (returnedScenarioTable.Rows.Count > 0)
             {
+                // enable proper buttons
+                ScenarioListHasValues();
+                    
                 // then add data to listbox
                 AddDataToListBox(returnedScenarioTable);
             }
@@ -72,8 +78,7 @@ namespace InRealLife_2
         // exit builder button click event UNDER DEVELOPMENT
         private void BtnExitBuilder_Click(object sender, RoutedEventArgs e)
         {
-            // hide current form
-            // this.Hide();
+            System.Windows.Application.Current.Shutdown();
         }
 
         // create scenario button click event
@@ -84,7 +89,6 @@ namespace InRealLife_2
 
             // load form to edit scenario
             // .show();
-
         }
 
         // delete scenario button click event
@@ -106,7 +110,6 @@ namespace InRealLife_2
             {
                 // Show user which scenario was deleted
                 MessageBox.Show("The scenario called " + selectedScenario.ScenarioName + " was deleted");
-                MessageBox.Show(scenarioRowsDeleted.ToString());
 
                 // reset form
                 InitializeForm();
@@ -122,15 +125,13 @@ namespace InRealLife_2
         }
 
         // preview scenario button click event
-        private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
+        private void BtnPerformScenario_Click(object sender, RoutedEventArgs e)
         {
             Running run = new Running(1);
             run.Show();
-            // hide current form
-            // this.Hide();
 
-            // load form to preview scenario
-
+            // hide main menu form form
+            this.Hide();
         }
 
         // method for form behaviors if list is empty
@@ -138,34 +139,38 @@ namespace InRealLife_2
         {
             btnEditScenario.IsEnabled = false;
             btnDeleteScenario.IsEnabled = false;
-            btnPreviewScenario.IsEnabled = false;
+            btnPerformScenario.IsEnabled = false;
         }
 
         // method for form behaviors if list has data
         private void ScenarioListHasValues()
         {
-            btnEditScenario.IsEnabled = true;
-            btnDeleteScenario.IsEnabled = true;
-            btnPreviewScenario.IsEnabled = true;
+            // ***** change this btnEditScenario control back to true when edit scenario is incorporated ***********
+            btnEditScenario.IsEnabled = false;
         }
 
         // method to add scenario data to scenario list box
         private void AddDataToListBox(DataTable returnedScenarioTable)
-        {
-            
-            // loop to put scenario names from data table into scenario listbox items
-            for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
-            {
-                // add data table results to list view using scenario object and database results
-                this.lstvwScenarios.Items.Add(new Scenario { ScenarioID = Int32.Parse(returnedScenarioTable.Rows[i][0].ToString()), ScenarioName = returnedScenarioTable.Rows[i][1].ToString() });
-            }
+        {            
+            // scenario names from data table into scenario listbox items
+            lstvwScenarios.ItemsSource = returnedScenarioTable.DefaultView;
         }
 
         // has scenarios listbox selection changed
         private void LstvwScenarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            enableButtonsWhenScenarioSelected();
+        }
+
+        private void enableButtonsWhenScenarioSelected()
+        {
             // enable buttons
             ScenarioListHasValues();
+
+            // enable perform scenario button
+            btnPerformScenario.IsEnabled = true;
+
+            btnDeleteScenario.IsEnabled = true;
         }
     }
 }
