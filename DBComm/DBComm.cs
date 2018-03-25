@@ -111,7 +111,7 @@ namespace InRealLife_2
             int scenarioRowsDeleted = 0;
 
             // set query string
-            String deleteQuery = @"DELETE ScenarioID FROM Scenario WHERE ScenarioID = " + scenarioID;
+            String deleteQuery = "DELETE ScenarioID FROM Scenario WHERE ScenarioID =" + scenarioID;
             
             using (conn)
             using (OleDbCommand DeleteCmd = new OleDbCommand(deleteQuery, conn))

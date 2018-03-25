@@ -106,6 +106,7 @@ namespace InRealLife_2
             {
                 // Show user which scenario was deleted
                 MessageBox.Show("The scenario called " + selectedScenario.ScenarioName + " was deleted");
+                MessageBox.Show(scenarioRowsDeleted.ToString());
 
                 // reset form
                 InitializeForm();
