@@ -25,7 +25,7 @@ using System.Windows.Shapes;
  * course: SEII
  * assignment: InRealLife (Group Project Spring 2018)
  * date: 03/20/2018
- * file name: MainWindow.xaml.cs
+ * file name: Running.xaml.cs
  * version: 1.0
  */
 namespace InRealLife_2
@@ -124,7 +124,7 @@ namespace InRealLife_2
         }
 
         // preview scenario button click event
-        private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
+        private void BtnPerformScenario_Click(object sender, RoutedEventArgs e)
         {
             // show running form
             Running run = new Running();
