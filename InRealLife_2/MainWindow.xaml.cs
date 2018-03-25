@@ -89,17 +89,20 @@ namespace InRealLife_2
         // delete scenario button click event
         private void BtnDeleteScenario_Click(object sender, RoutedEventArgs e)
         {
-            //
+            // create return variable
             int scenarioRowsDeleted = 0;
 
+            // grab selected scenario and put into variable
+            Scenario selectedScenario = (Scenario)lstvwScenarios.SelectedItem;
+
             // run query to delete selected scenario from DB
-            //scenarioRowsDeleted = newDBComm.DeleteSelectedScenario(lstvwScenarios.ScenarioID);
+            scenarioRowsDeleted = newDBComm.DeleteSelectedScenario(selectedScenario.ScenarioID);
 
             // if scenario was deleted
             if (scenarioRowsDeleted > 0)
             {
                 // Show user which scenario was deleted
-                MessageBox.Show("The scenario called " + lstvwScenarios.SelectedValue + " was deleted");
+                MessageBox.Show("The scenario called " + selectedScenario.ScenarioName + " was deleted");
 
                 // reset form
                 InitializeForm();

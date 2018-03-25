@@ -15,7 +15,7 @@
         <Button x:Name="btnEditScenario" Content="edit" HorizontalAlignment="Left" Margin="286,345,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.344,0.307"/>
         <Button x:Name="btnDeleteScenario" Content="- delete" HorizontalAlignment="Left" Margin="421,345,0,0" VerticalAlignment="Top" Width="75" Click="BtnDeleteScenario_Click" RenderTransformOrigin="1.745,0.058"/>
         <Button x:Name="btnPreviewScenario" Content="Preview" HorizontalAlignment="Left" Margin="557,345,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.213,0.712" Click="BtnPreviewScenario_Click"/>
-        <ListView x:Name="lstvwScenarios" HorizontalAlignment="Left" Height="152" Margin="296,166,0,0" VerticalAlignment="Top" Width="185" SelectionChanged="LstvwScenarios_SelectionChanged">
+        <ListView x:Name="lstvwScenarios" HorizontalAlignment="Left" Height="152" Margin="296,166,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="LstvwScenarios_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="Auto" Header="Scenario Number" DisplayMemberBinding="{Binding ScenarioID}" />

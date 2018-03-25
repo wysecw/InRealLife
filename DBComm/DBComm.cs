@@ -94,11 +94,8 @@ namespace InRealLife_2
             using (conn)
             using (OleDbCommand Cmd = new OleDbCommand(query, conn))
             {
-                scenarioRowsDeleted = Cmd.ExecuteNonQuery();
+                return scenarioRowsDeleted = Cmd.ExecuteNonQuery();
             }
-
-            // return number of rows deleted
-            return scenarioRowsDeleted;
         }
     }
 }
