@@ -25,13 +25,13 @@ using System.Windows.Shapes;
  * course: SEII
  * assignment: InRealLife (Group Project Spring 2018)
  * date: 03/20/2018
- * file name: MainWindow.xaml.cs
+ * file name: Running.xaml.cs
  * version: 1.0
  */
 namespace InRealLife_2
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Running.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -124,6 +124,8 @@ namespace InRealLife_2
         // preview scenario button click event
         private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
         {
+            Running run = new Running();
+            run.Show();
             // hide current form
             // this.Hide();
 
