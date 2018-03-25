@@ -156,12 +156,8 @@ namespace InRealLife_2
         // method to add scenario data to scenario list box
         private void AddDataToListBox(DataTable returnedScenarioTable)
         {            
-            // loop to put scenario names from data table into scenario listbox items
-            for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
-            {
-                // add data table results to list view using scenario object and database results
-                this.lstvwScenarios.Items.Add(new Scenario { ScenarioID = Int32.Parse(returnedScenarioTable.Rows[i][0].ToString()), ScenarioName = returnedScenarioTable.Rows[i][1].ToString() });
-            }
+            // scenario names from data table into scenario listbox items
+            lstvwScenarios.ItemsSource = returnedScenarioTable.DefaultView;
         }
 
         // has scenarios listbox selection changed
