@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -54,9 +55,6 @@ namespace InRealLife_2
             //
             DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
 
-            MessageBox.Show(returnedScenarioTable.Rows[0][0].ToString());
-            MessageBox.Show(returnedScenarioTable.Rows[0][1].ToString());
-
             // if data table has rows
             if (returnedScenarioTable.Rows.Count > 0)
             {
@@ -95,7 +93,7 @@ namespace InRealLife_2
             int scenarioRowsDeleted = 0;
 
             // run query to delete selected scenario from DB
-            scenarioRowsDeleted = newDBComm.DeleteSelectedScenario(lstvwScenarios.SelectedIndex);
+            //scenarioRowsDeleted = newDBComm.DeleteSelectedScenario(lstvwScenarios.ScenarioID);
 
             // if scenario was deleted
             if (scenarioRowsDeleted > 0)
@@ -148,10 +146,9 @@ namespace InRealLife_2
             
             // loop to put scenario names from data table into scenario listbox items
             for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
-            {                
+            {
                 // add data table results to list view
-                lstvwScenarios.Items.Add(returnedScenarioTable.Rows[i][0].ToString());
-                //this.lstvwScenarios.Items.Add(new MyItem { Id = 1, Name = "David" });
+                this.lstvwScenarios.Items.Add(new Scenario { ScenarioID = Int32.Parse(returnedScenarioTable.Rows[i][0].ToString()), ScenarioName = returnedScenarioTable.Rows[i][1].ToString() });
             }
         }
 

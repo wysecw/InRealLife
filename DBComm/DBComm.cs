@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using Classes;
+using System.Collections;
 
 /*
  * This class creates a database connection to an Access database and has various methods 
@@ -62,8 +64,11 @@ namespace InRealLife_2
             using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
             {
                 adapter.Fill(dt);
+
                 return dt;
             }
+
+
         }
 
         // to grab all data from scenario table joined to grab relevant data from stage table joined to grab relevant data from answer table

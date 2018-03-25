@@ -110,6 +110,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{BF73ECEF-CBF1-4404-9E5E-C1E7DABFC204}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBComm\DBComm.csproj">
       <Project>{f04e1a8e-8876-4f24-9430-8b2ec46e222d}</Project>
       <Name>DBComm</Name>
