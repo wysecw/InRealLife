@@ -16,6 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Classes;
 
+/*
+ * This GUI is the main menu for the scenario builder which allows the user to create a scenario form, edit a scenario form, 
+ * delete an entire scenario, or preview a scenario.
+ *
+ * author: Group 7 (Stephen Bailey, Omar Garcia, Craig Wyse, Matthew Harris)
+ * course: SEII
+ * assignment: InRealLife (Group Project Spring 2018)
+ * date: 03/20/2018
+ * file name: Running.xaml.cs
+ * version: 1.0
+ */
 namespace InRealLife_2
 {
     /// <summary>
