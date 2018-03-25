@@ -77,8 +77,7 @@ namespace InRealLife_2
         // exit builder button click event UNDER DEVELOPMENT
         private void BtnExitBuilder_Click(object sender, RoutedEventArgs e)
         {
-            // hide current form
-            // this.Hide();
+            System.Windows.Application.Current.Shutdown();
         }
 
         // create scenario button click event
@@ -127,12 +126,12 @@ namespace InRealLife_2
         // preview scenario button click event
         private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
         {
+            // show running form
             Running run = new Running();
             run.Show();
-            // hide current form
-            // this.Hide();
 
-            // load form to preview scenario
+            // hide main menu form form
+            this.Hide();
         }
 
         // method for form behaviors if list is empty

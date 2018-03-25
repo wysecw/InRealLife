@@ -97,7 +97,12 @@ namespace InRealLife_2
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            // show main menu form
+            MainWindow newMainWindow = new MainWindow();
+            newMainWindow.Show();
+
+            // hide main menu form form
+            this.Hide();
         }
     }
 }
