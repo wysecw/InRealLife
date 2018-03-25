@@ -29,9 +29,10 @@ namespace InRealLife_2
 
         public Running()
         {
+            string fileLoc = "C:\\Users\\Wyse\\Source\\Repos\\InRealLife_2\\InRealLife_2\\mediaFiles\\flat.tire.10.jpg";
             InitializeComponent();
             Start();
-            ImageBlock.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "mediaFiles\\flat.tire.10.jpg", UriKind.Absolute));
+            ImageBlock.Source = new BitmapImage(new Uri(fileLoc, UriKind.Absolute));
         }
 
 
@@ -97,7 +98,12 @@ namespace InRealLife_2
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            // show main menu form
+            MainWindow newMainWindow = new MainWindow();
+            newMainWindow.Show();
+
+            // hide main menu form form
+            this.Hide();
         }
     }
 }
