@@ -31,7 +31,7 @@ namespace InRealLife_2
         // create new connection
         OleDbConnection conn = new OleDbConnection(connectionString);
 
-        // query returns a 
+        // method to grab the scenario title
         public String displayScenarioTitle(String scTitle)
         {
             DataSet ds = new DataSet();
@@ -46,7 +46,7 @@ namespace InRealLife_2
             }
         }
 
-        //
+        // method to grab scenario description
         public String displayScenarioDescription(String scTitle)
         {
             DataSet ds = new DataSet();
