@@ -71,7 +71,7 @@ namespace InRealLife_2
             }
         }
 
-
+        //
         public String getScenarioName(int ScenarioId)
         {
             String query = @"SELECT ScenarioName FROM Scenario Where ScenarioId =" + ScenarioId;
@@ -87,8 +87,6 @@ namespace InRealLife_2
                     var result = command.ExecuteScalar();
                     return "" + result;
             }
-            
-
         }
 
         public String getAnswer(int AnswerId, int StageID)

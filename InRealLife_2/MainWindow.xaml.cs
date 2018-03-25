@@ -25,7 +25,7 @@ using System.Windows.Shapes;
  * course: SEII
  * assignment: InRealLife (Group Project Spring 2018)
  * date: 03/20/2018
- * file name: Running.xaml.cs
+ * file name: MainWindow.xaml.cs
  * version: 1.0
  */
 namespace InRealLife_2
@@ -139,7 +139,7 @@ namespace InRealLife_2
         {
             btnEditScenario.IsEnabled = false;
             btnDeleteScenario.IsEnabled = false;
-            btnPreviewScenario.IsEnabled = false;
+            btnPerformScenario.IsEnabled = false;
         }
 
         // method for form behaviors if list has data
@@ -149,7 +149,7 @@ namespace InRealLife_2
             btnEditScenario.IsEnabled = false;
 
             btnDeleteScenario.IsEnabled = true;
-            btnPreviewScenario.IsEnabled = true;
+            btnPerformScenario.IsEnabled = true;
         }
 
         // method to add scenario data to scenario list box

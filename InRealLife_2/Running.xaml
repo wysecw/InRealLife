@@ -11,8 +11,6 @@
         <Button x:Name="Button2" Content="Wrong" HorizontalAlignment="Left" Margin="447,314,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <TextBlock x:Name="ScenarioName" HorizontalAlignment="Left" Margin="320,75,0,0" TextWrapping="Wrap" Text="Main Page" VerticalAlignment="Top"/>
         <Image x:Name="ImageBlock" HorizontalAlignment="Left" Height="100" Margin="320,115,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="58,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="58,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-
+        <Button x:Name="ExitButton" Content="Exit Perform" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
     </Grid>
 </Window>
