@@ -127,7 +127,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="mediaFiles\flat.tire.10.jpg" />
+    <Resource Include="mediaFiles\flat.tire.10.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="ScenarioData.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

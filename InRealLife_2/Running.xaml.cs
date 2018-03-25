@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Classes;
 
+/*
+ * This GUI is the main menu for the scenario builder which allows the user to create a scenario form, edit a scenario form, 
+ * delete an entire scenario, or preview a scenario.
+ *
+ * author: Group 7 (Stephen Bailey, Omar Garcia, Craig Wyse, Matthew Harris)
+ * course: SEII
+ * assignment: InRealLife (Group Project Spring 2018)
+ * date: 03/20/2018
+ * file name: Running.xaml.cs
+ * version: 1.0
+ */
 namespace InRealLife_2
 {
     /// <summary>
@@ -20,55 +34,63 @@ namespace InRealLife_2
     /// </summary>
     public partial class Running : Window
     {
-        int ScenarioId = 1;
-        int StageId = 1;
-        int Answer1 = 1;
-        int Answer2 = 2;
-
-
-
-        public Running()
+        DataHandler data = new DataHandler();
+        public Running(int Scenario)
         {
-            string fileLoc = "C:\\Users\\Wyse\\Source\\Repos\\InRealLife_2\\InRealLife_2\\mediaFiles\\flat.tire.10.jpg";
+           
             InitializeComponent();
-            Start();
-            ImageBlock.Source = new BitmapImage(new Uri(fileLoc, UriKind.Absolute));
+            Start(Scenario);
+            ImageBlock.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "\\MediaFiles\\flat.tire.10.jpg", UriKind.Absolute));
         }
 
 
 
-        public void Start()
+        public void Start(int ScenarioId)
         {
-            Scenario scenario = new Scenario();
-            Stage stage = new Stage();
-            Answer answer = new Answer();
-            DBComm Dbase = new DBComm();
-            scenario.ScenarioID = 1;
-            scenario.ScenarioName = Dbase.getScenarioName(1);
-            ScenarioName.Text = scenario.ScenarioName;
+            data.Intetialize(ScenarioId);
+            ScenarioName.Text = data.scenario.ScenarioName;
 
-            Button1.Content = Dbase.getAnswer(Answer1, StageId);
-            Button2.Content = Dbase.getAnswer(Answer2, StageId);
+            Button1.Content = data.answer1.AnswerDescription;
+            Button2.Content = data.answer2.AnswerDescription;
+            StageDescription.Text = data.stage.StageDescription;
+
         }
 
 
 
-        public void Update(int ScenarioId, int StageId)
+        public void Update(int AnswerNumber)
         {
-            Answer1 = 1;
-            Answer2 = 2;
-
-            DBComm Dbase = new DBComm();
-
-            if (ScenarioId == -1)
+            if (AnswerNumber == 1)
             {
+                if (data.answer2.NextStageID == 0)
+                {
+                    Button1.Content = "Done";
+                    Button2.Content = "Done";
+                }
+                else
+                {
+                    data.Update(AnswerNumber);
 
+                    Button1.Content = data.answer1.AnswerDescription;
+                    Button2.Content = data.answer2.AnswerDescription;
+                    StageDescription.Text = data.stage.StageDescription;
+                }
             }
-            else
+            else if (AnswerNumber == 2)
             {
-                ScenarioName.Text = Dbase.getScenarioName(ScenarioId);
-                Button1.Content = Dbase.getAnswer(Answer1, StageId);
-                Button2.Content = Dbase.getAnswer(Answer2, StageId);
+                if (data.answer2.NextStageID == 0)
+                {
+                    Button1.Content = "Done";
+                    Button2.Content = "Done";
+                }
+                else
+                {
+                    data.Update(AnswerNumber);
+
+                    Button1.Content = data.answer1.AnswerDescription;
+                    Button2.Content = data.answer2.AnswerDescription;
+                    StageDescription.Text = data.stage.StageDescription;
+                }
             }
         }
 
@@ -76,34 +98,17 @@ namespace InRealLife_2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int Answer = 1;
-
-            DBComm Dbase = new DBComm();
-
-            StageId = Dbase.getNextStageID(Answer, StageId);
-            Update(ScenarioId, StageId);
-            //ImageBlock.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "mediaFiles\\good.png", UriKind.Absolute));
+            Update(1);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            int Answer = 2;
-
-            DBComm Dbase = new DBComm();
-
-            StageId = Dbase.getNextStageID(Answer, StageId);
-            Update(ScenarioId, StageId);
-            //ImageBlock.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "mediaFiles\\x.png", UriKind.Absolute));
+            Update(2);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            // show main menu form
-            MainWindow newMainWindow = new MainWindow();
-            newMainWindow.Show();
-
-            // hide main menu form form
-            this.Hide();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

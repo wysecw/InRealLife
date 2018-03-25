@@ -51,10 +51,11 @@ namespace InRealLife_2
             lstvwScenarios.Items.Clear();
 
             // enable create button
-            // ***** change btnExitBuilder, btnCreateScenario, and btnEditScenario(below) control back to true when edit scenario is incorporated ***********
-            btnExitBuilder.IsEnabled = false;
+            // ***** change btnCreateScenario, and btnEditScenario(below) control back to true when edit scenario is incorporated ***********
             btnCreateScenario.IsEnabled = false;
-                
+            btnDeleteScenario.IsEnabled = false;
+            btnPerformScenario.IsEnabled = false;
+
             // data table containing  data from scenario table
             DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
 
@@ -124,10 +125,9 @@ namespace InRealLife_2
         }
 
         // preview scenario button click event
-        private void BtnPreviewScenario_Click(object sender, RoutedEventArgs e)
+        private void BtnPerformScenario_Click(object sender, RoutedEventArgs e)
         {
-            // show running form
-            Running run = new Running();
+            Running run = new Running(1);
             run.Show();
 
             // hide main menu form form
@@ -139,7 +139,7 @@ namespace InRealLife_2
         {
             btnEditScenario.IsEnabled = false;
             btnDeleteScenario.IsEnabled = false;
-            btnPreviewScenario.IsEnabled = false;
+            btnPerformScenario.IsEnabled = false;
         }
 
         // method for form behaviors if list has data
@@ -147,9 +147,6 @@ namespace InRealLife_2
         {
             // ***** change this btnEditScenario control back to true when edit scenario is incorporated ***********
             btnEditScenario.IsEnabled = false;
-
-            btnDeleteScenario.IsEnabled = true;
-            btnPreviewScenario.IsEnabled = true;
         }
 
         // method to add scenario data to scenario list box
@@ -162,8 +159,18 @@ namespace InRealLife_2
         // has scenarios listbox selection changed
         private void LstvwScenarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            enableButtonsWhenScenarioSelected();
+        }
+
+        private void enableButtonsWhenScenarioSelected()
+        {
             // enable buttons
             ScenarioListHasValues();
+
+            // enable perform scenario button
+            btnPerformScenario.IsEnabled = true;
+
+            btnDeleteScenario.IsEnabled = true;
         }
     }
 }
