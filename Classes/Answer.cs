@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /*
- * This class Answer ...
+ * This class Answer has 2 constructors and 4 properties for handling instance variables.
  *
  * author: Group 7 (Stephen Bailey, Omar Garcia, Craig Wyse, Matthew Harris)
  * course: SEII

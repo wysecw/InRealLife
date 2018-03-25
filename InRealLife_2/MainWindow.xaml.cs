@@ -35,6 +35,7 @@ namespace InRealLife_2
     /// </summary>
     public partial class MainWindow : Window
     {
+        // create new database object
         DBComm newDBComm = new DBComm();
 
         public MainWindow()
@@ -52,13 +53,13 @@ namespace InRealLife_2
             // enable create button
             btnCreateScenario.IsEnabled = true;
                 
-            //
+            // data table containing  data from scenario table
             DataTable returnedScenarioTable = newDBComm.displayAllScenarios();
 
             // if data table has rows
             if (returnedScenarioTable.Rows.Count > 0)
             {
-                // add data to listbox
+                // then add data to listbox
                 AddDataToListBox(returnedScenarioTable);
             }
             else
@@ -89,7 +90,9 @@ namespace InRealLife_2
         // delete scenario button click event
         private void BtnDeleteScenario_Click(object sender, RoutedEventArgs e)
         {
-            // create return variable
+            // CONSTANT used when comparing to the number 
+            const int EMPTY_DB_RESULT = 0;
+
             int scenarioRowsDeleted = 0;
 
             // grab selected scenario and put into variable
@@ -99,7 +102,7 @@ namespace InRealLife_2
             scenarioRowsDeleted = newDBComm.DeleteSelectedScenario(selectedScenario.ScenarioID);
 
             // if scenario was deleted
-            if (scenarioRowsDeleted > 0)
+            if (scenarioRowsDeleted > EMPTY_DB_RESULT)
             {
                 // Show user which scenario was deleted
                 MessageBox.Show("The scenario called " + selectedScenario.ScenarioName + " was deleted");
@@ -150,7 +153,7 @@ namespace InRealLife_2
             // loop to put scenario names from data table into scenario listbox items
             for (int i = 0; i < returnedScenarioTable.Rows.Count; i++)
             {
-                // add data table results to list view
+                // add data table results to list view using scenario object and database results
                 this.lstvwScenarios.Items.Add(new Scenario { ScenarioID = Int32.Parse(returnedScenarioTable.Rows[i][0].ToString()), ScenarioName = returnedScenarioTable.Rows[i][1].ToString() });
             }
         }

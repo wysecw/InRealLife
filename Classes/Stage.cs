@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /*
- * This class Stage ...
+ * This class Stage has 2 constructors and 5 properties for handling instance variables.
  *
  * author: Group 7 (Stephen Bailey, Omar Garcia, Craig Wyse, Matthew Harris)
  * course: SEII
