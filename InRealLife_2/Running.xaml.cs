@@ -63,8 +63,9 @@ namespace InRealLife_2
             {
                 if (data.answer2.NextStageID == 0)
                 {
-                    Button1.Content = "Done";
-                    Button2.Content = "Done";
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Close();
                 }
                 else
                 {
@@ -79,8 +80,9 @@ namespace InRealLife_2
             {
                 if (data.answer2.NextStageID == 0)
                 {
-                    Button1.Content = "Done";
-                    Button2.Content = "Done";
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Close();
                 }
                 else
                 {
@@ -107,6 +109,8 @@ namespace InRealLife_2
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            MainWindow main = new MainWindow();
+            main.Show();
             Close();
         }
     }
