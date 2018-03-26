@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="Running" Height="450" Width="800">
     <Grid Margin="8,0,-8.4,0">
-        <Button x:Name="Button1" Content="Right" HorizontalAlignment="Left" Margin="164,314,0,0" VerticalAlignment="Top" Width="172" Click="Button_Click" Height="61"/>
-        <Button x:Name="Button2" Content="Wrong" HorizontalAlignment="Left" Margin="366,314,0,0" VerticalAlignment="Top" Width="156" Click="Button_Click_1" Height="61"/>
+        <Button x:Name="Button1" Content="Choose" HorizontalAlignment="Left" Margin="164,367,0,0" VerticalAlignment="Top"  Click="Button_Click"/>
+        <Button x:Name="Button2" Content="Choose" HorizontalAlignment="Left" Margin="411,367,0,0" VerticalAlignment="Top"  Click="Button_Click_1" TextOptions.TextFormattingMode="Display"/>
         <TextBlock x:Name="ScenarioName" HorizontalAlignment="Left" Margin="320,75,0,0" TextWrapping="Wrap" Text="Main Page" VerticalAlignment="Top"/>
         <Image x:Name="ImageBlock" HorizontalAlignment="Left" Height="100" Margin="320,115,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="StageDescription" HorizontalAlignment="Left" Height="45" Margin="164,240,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="358"/>
-        <Button x:Name="ExitButton" Content="Exit Perform" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button x:Name="ExitButton" Content="Exit Perform" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" />
+        <TextBlock x:Name="Text1" HorizontalAlignment="Left" Margin="164,323,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="StageDescription" HorizontalAlignment="Left" Margin="164,245,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Text2" HorizontalAlignment="Left" Margin="411,323,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

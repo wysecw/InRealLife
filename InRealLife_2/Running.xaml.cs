@@ -49,8 +49,8 @@ namespace InRealLife_2
             data.Intetialize(ScenarioId);
             ScenarioName.Text = data.scenario.ScenarioName;
 
-            Button1.Content = data.answer1.AnswerDescription;
-            Button2.Content = data.answer2.AnswerDescription;
+            Text1.Text = data.answer1.AnswerDescription;
+            Text2.Text = data.answer2.AnswerDescription;
             StageDescription.Text = data.stage.StageDescription;
 
         }
@@ -71,8 +71,8 @@ namespace InRealLife_2
                 {
                     data.Update(AnswerNumber);
 
-                    Button1.Content = data.answer1.AnswerDescription;
-                    Button2.Content = data.answer2.AnswerDescription;
+                    Text1.Text = data.answer1.AnswerDescription;
+                    Text2.Text = data.answer2.AnswerDescription;
                     StageDescription.Text = data.stage.StageDescription;
                 }
             }
@@ -88,8 +88,8 @@ namespace InRealLife_2
                 {
                     data.Update(AnswerNumber);
 
-                    Button1.Content = data.answer1.AnswerDescription;
-                    Button2.Content = data.answer2.AnswerDescription;
+                    Text1.Text = data.answer1.AnswerDescription;
+                    Text2.Text = data.answer2.AnswerDescription;
                     StageDescription.Text = data.stage.StageDescription;
                 }
             }
