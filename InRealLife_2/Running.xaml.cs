@@ -50,8 +50,8 @@ namespace InRealLife_2
             data.Intetialize(ScenarioId);
             ScenarioName.Text = data.scenario.ScenarioName;
 
-            Button1.Content = data.answer1.AnswerDescription;
-            Button2.Content = data.answer2.AnswerDescription;
+            Text1.Text = data.answer1.AnswerDescription;
+            Text2.Text = data.answer2.AnswerDescription;
             StageDescription.Text = data.stage.StageDescription;
 
         }
@@ -64,15 +64,16 @@ namespace InRealLife_2
             {
                 if (data.answer2.NextStageID == 0)
                 {
-                    Button1.Content = "Done";
-                    Button2.Content = "Done";
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Close();
                 }
                 else
                 {
                     data.Update(AnswerNumber);
 
-                    Button1.Content = data.answer1.AnswerDescription;
-                    Button2.Content = data.answer2.AnswerDescription;
+                    Text1.Text = data.answer1.AnswerDescription;
+                    Text2.Text = data.answer2.AnswerDescription;
                     StageDescription.Text = data.stage.StageDescription;
                 }
             }
@@ -80,15 +81,16 @@ namespace InRealLife_2
             {
                 if (data.answer2.NextStageID == 0)
                 {
-                    Button1.Content = "Done";
-                    Button2.Content = "Done";
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Close();
                 }
                 else
                 {
                     data.Update(AnswerNumber);
 
-                    Button1.Content = data.answer1.AnswerDescription;
-                    Button2.Content = data.answer2.AnswerDescription;
+                    Text1.Text = data.answer1.AnswerDescription;
+                    Text2.Text = data.answer2.AnswerDescription;
                     StageDescription.Text = data.stage.StageDescription;
                 }
             }
@@ -108,7 +110,9 @@ namespace InRealLife_2
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
         }
     }
 }
