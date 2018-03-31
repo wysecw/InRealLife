@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Data.OleDb;
 using Classes;
 using System.Collections;
 
@@ -26,36 +25,47 @@ namespace InRealLife_2
     public class DBComm
     {
         // CONSTANT storing the connection string
-        public const string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
+        public const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\IRL_SQL_Database.mdf;Integrated Security=True";
 
         // create new connection
-        OleDbConnection conn = new OleDbConnection(connectionString);
+        SqlConnection conn = new SqlConnection(connectionString);
 
         // method to grab all data from scenario table on the database
         public DataTable displayAllScenarios()
         {
-            DataTable dt = new DataTable();
-            String query = "SELECT * FROM Scenario";
+            // create new data table
+            DataTable scenarioDataTable = new DataTable();
+
+            // query string to display scenarios
+            String displayScenariosQuery = "SELECT * FROM Scenario";
+
             using (conn)
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
+            using (SqlCommand sqlCommand = new SqlCommand(displayScenariosQuery, conn))
             {
+                // reinitialize connection string
                 conn.ConnectionString = connectionString;
+
+                // open connection
                 conn.Open();
-                adapter.Fill(dt);
-                return dt;
+
+                // load data table
+                scenarioDataTable.Load(sqlCommand.ExecuteReader());
+
+                return scenarioDataTable;
             }
         }
 
         // method to delete a scenario from scenario table on the database
         public int DeleteSelectedScenario(int scenarioID)
         {
+            // create return variable
             int scenarioRowsDeleted = 0;
 
-            // set query string
+            // set DELETE query string
             String deleteQuery = "DELETE * FROM Scenario WHERE ScenarioID =" + scenarioID;
             
             using (conn)
-            using (OleDbCommand DeleteCmd = new OleDbCommand(deleteQuery, conn))
+            using (SqlCommand DeleteCmd = new SqlCommand(deleteQuery, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -69,201 +79,6 @@ namespace InRealLife_2
                 // return number of rows deleted
                 return scenarioRowsDeleted;
             }
-        }
-
-        public String getScenarioName(int ScenarioId)
-        {
-            String query = @"SELECT ScenarioName FROM Scenario Where ScenarioId =" + ScenarioId;
-
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                return "" + result;
-            }
-
-
-        }
-
-        public String getAnswer(int AnswerId, int StageID)
-        {
-            String query = "SELECT AnswerDescription FROM Answer WHERE StageID = " + StageID + " AND AnswerID = " + AnswerId;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                return "" + result;
-            }
-        }
-
-        public int getNextStageID(int AnswerId, int StageID)
-        {
-            String query = "SELECT nextStageID FROM Answer WHERE StageID = " + StageID + " AND AnswerID = " + AnswerId;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (int)result;
-                }
-            }
-            return 0;
-        }
-
-        public int getStageID(int ScenarioID, int stage)
-        {
-            String query = "SELECT StageID FROM Stage WHERE ScenarioID = " + ScenarioID + " and stage = " + stage;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (int)result;
-                }
-            }
-            return 0;
-        }
-
-        public String getAudioFilePath(int StageID)
-        {
-            String query = "SELECT AudioFilePath FROM Stage WHERE StageID = " + StageID;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (String)result;
-                }
-            }
-            return "";
-        }
-
-        public String getStageDescription(int StageID)
-        {
-            String query = "SELECT StageDescription FROM Stage WHERE StageID = " + StageID;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (String)result;
-                }
-            }
-            return "";
-        }
-
-        public String getImageFilePath(int StageID)
-        {
-            String query = "SELECT ImageFilePath FROM Stage WHERE StageID = " + StageID;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (String)result;
-                }
-            }
-            return "";
-        }
-
-        public int getAnswerID(int StageID, int answerNum)
-        {
-            String query = "SELECT AnswerID FROM Answer WHERE StageID = " + StageID + " AND Answer = " + answerNum;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (int)result;
-                }
-            }
-            return 0;
-        }
-
-        public String getAnswerDescription(int AnswerID)
-        {
-            String query = "SELECT AnswerDescription FROM answer WHERE AnswerID = " + AnswerID;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (String)result;
-                }
-            }
-            return "";
-        }
-
-        public int getNextStageID(int AnswerID)
-        {
-            String query = "SELECT nextStageID FROM Answer WHERE AnswerID = " + AnswerID;
-            using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
-            {
-                // reinitialize connection string
-                conn.ConnectionString = connectionString;
-
-                conn.Open();
-
-                var result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return (int)result;
-                }
-            }
-            return 0;
         }
     }
 }

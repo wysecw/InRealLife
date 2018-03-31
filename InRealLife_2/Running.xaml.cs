@@ -34,7 +34,7 @@ namespace InRealLife_2
     /// </summary>
     public partial class Running : Window
     {
-        DBComm data = new DBComm();
+        DataHandler data = new DataHandler();
         public Running(int Scenario)
         {
            
