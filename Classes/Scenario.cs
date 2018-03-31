@@ -18,9 +18,6 @@ namespace Classes
 {
     public class Scenario
     {
-        public int _ScenarioID;
-        public string _ScenarioName;
-
         // Auto Implemented Properties Scenario
         public int ScenarioID { get; set; }
         public string ScenarioName { get; set; }

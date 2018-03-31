@@ -18,11 +18,6 @@ namespace Classes
 {
     public class Answer
     {
-        public int _AnswerID;
-        public int _StageID;
-        public String _AnswerDescription;
-        public int _NextStageID;
-
         // Auto Implemented Properties Answer
         public int AnswerID { get; set; }
         public int StageID { get; set; }
