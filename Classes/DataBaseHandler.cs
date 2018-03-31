@@ -11,7 +11,7 @@ namespace Classes
     class DataBaseHandler
     {
         // CONSTANT storing the connection string
-        public const string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
+        public const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\IRL_SQL_Database.mdf;Integrated Security=True";
 
         // create new connection
         SqlConnection conn = new SqlConnection(connectionString);
