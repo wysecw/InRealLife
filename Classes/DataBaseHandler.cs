@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,17 @@ namespace Classes
     class DataBaseHandler
     {
         // CONSTANT storing the connection string
-        public const string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
+        public const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\IRL_SQL_Database.mdf;Integrated Security=True";
 
         // create new connection
-        OleDbConnection conn = new OleDbConnection(connectionString);
+        SqlConnection conn = new SqlConnection(connectionString);
 
         public String getScenarioName(int ScenarioId)
         {
             String query = @"SELECT ScenarioName FROM Scenario Where ScenarioId =" + ScenarioId;
 
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -30,15 +31,13 @@ namespace Classes
                 var result = command.ExecuteScalar();
                 return "" + result;
             }
-
-
         }
 
         public String getAnswer(int AnswerId, int StageID)
         {
             String query = "SELECT AnswerDescription FROM Answer WHERE StageID = " + StageID + " AND AnswerID = " + AnswerId;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -54,7 +53,7 @@ namespace Classes
         {
             String query = "SELECT nextStageID FROM Answer WHERE StageID = " + StageID + " AND AnswerID = " + AnswerId;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -74,7 +73,7 @@ namespace Classes
         {
             String query = "SELECT StageID FROM Stage WHERE ScenarioID = " + ScenarioID + " and stage = " + stage;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -94,7 +93,7 @@ namespace Classes
         {
             String query = "SELECT AudioFilePath FROM Stage WHERE StageID = " + StageID;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -114,7 +113,7 @@ namespace Classes
         {
             String query = "SELECT StageDescription FROM Stage WHERE StageID = " + StageID;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -134,7 +133,7 @@ namespace Classes
         {
             String query = "SELECT ImageFilePath FROM Stage WHERE StageID = " + StageID;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -154,7 +153,7 @@ namespace Classes
         {
             String query = "SELECT AnswerID FROM Answer WHERE StageID = " + StageID + " AND Answer = " + answerNum;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -174,7 +173,7 @@ namespace Classes
         {
             String query = "SELECT AnswerDescription FROM answer WHERE AnswerID = " + AnswerID;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
@@ -194,7 +193,7 @@ namespace Classes
         {
             String query = "SELECT nextStageID FROM Answer WHERE AnswerID = " + AnswerID;
             using (conn)
-            using (OleDbCommand command = new OleDbCommand(query, conn))
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;

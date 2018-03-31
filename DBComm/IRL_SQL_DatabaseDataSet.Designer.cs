@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace InRealLife_2 {
+namespace DBComm {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace InRealLife_2 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ScenarioDataDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("IRL_SQL_DatabaseDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ScenarioDataDataSet : global::System.Data.DataSet {
+    public partial class IRL_SQL_DatabaseDataSet : global::System.Data.DataSet {
         
         private AnswerDataTable tableAnswer;
         
@@ -30,15 +30,15 @@ namespace InRealLife_2 {
         
         private StageDataTable tableStage;
         
-        private global::System.Data.DataRelation relationStageAnswer;
+        private global::System.Data.DataRelation relationFK_Answer_Stage;
         
-        private global::System.Data.DataRelation relationScenarioStage;
+        private global::System.Data.DataRelation relationFK_Stage_Scenario;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public ScenarioDataDataSet() {
+        public IRL_SQL_DatabaseDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -49,7 +49,7 @@ namespace InRealLife_2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected ScenarioDataDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected IRL_SQL_DatabaseDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -161,7 +161,7 @@ namespace InRealLife_2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ScenarioDataDataSet cln = ((ScenarioDataDataSet)(base.Clone()));
+            IRL_SQL_DatabaseDataSet cln = ((IRL_SQL_DatabaseDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -246,16 +246,16 @@ namespace InRealLife_2 {
                     this.tableStage.InitVars();
                 }
             }
-            this.relationStageAnswer = this.Relations["StageAnswer"];
-            this.relationScenarioStage = this.Relations["ScenarioStage"];
+            this.relationFK_Answer_Stage = this.Relations["FK_Answer_Stage"];
+            this.relationFK_Stage_Scenario = this.Relations["FK_Stage_Scenario"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ScenarioDataDataSet";
+            this.DataSetName = "IRL_SQL_DatabaseDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ScenarioDataDataSet.xsd";
+            this.Namespace = "http://tempuri.org/IRL_SQL_DatabaseDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAnswer = new AnswerDataTable();
@@ -264,14 +264,14 @@ namespace InRealLife_2 {
             base.Tables.Add(this.tableScenario);
             this.tableStage = new StageDataTable();
             base.Tables.Add(this.tableStage);
-            this.relationStageAnswer = new global::System.Data.DataRelation("StageAnswer", new global::System.Data.DataColumn[] {
+            this.relationFK_Answer_Stage = new global::System.Data.DataRelation("FK_Answer_Stage", new global::System.Data.DataColumn[] {
                         this.tableStage.StageIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAnswer.StageIDColumn}, false);
-            this.Relations.Add(this.relationStageAnswer);
-            this.relationScenarioStage = new global::System.Data.DataRelation("ScenarioStage", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Answer_Stage);
+            this.relationFK_Stage_Scenario = new global::System.Data.DataRelation("FK_Stage_Scenario", new global::System.Data.DataColumn[] {
                         this.tableScenario.ScenarioIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableStage.ScenarioIDColumn}, false);
-            this.Relations.Add(this.relationScenarioStage);
+            this.Relations.Add(this.relationFK_Stage_Scenario);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -303,7 +303,7 @@ namespace InRealLife_2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ScenarioDataDataSet ds = new ScenarioDataDataSet();
+            IRL_SQL_DatabaseDataSet ds = new IRL_SQL_DatabaseDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -365,11 +365,13 @@ namespace InRealLife_2 {
             
             private global::System.Data.DataColumn columnAnswerID;
             
-            private global::System.Data.DataColumn columnAnswerDescription;
-            
             private global::System.Data.DataColumn columnStageID;
             
-            private global::System.Data.DataColumn columnnextStageID;
+            private global::System.Data.DataColumn columnAnswerName;
+            
+            private global::System.Data.DataColumn columnAnswerDescription;
+            
+            private global::System.Data.DataColumn columnNextStageID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -414,14 +416,6 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AnswerDescriptionColumn {
-                get {
-                    return this.columnAnswerDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn StageIDColumn {
                 get {
                     return this.columnStageID;
@@ -430,9 +424,25 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn nextStageIDColumn {
+            public global::System.Data.DataColumn AnswerNameColumn {
                 get {
-                    return this.columnnextStageID;
+                    return this.columnAnswerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AnswerDescriptionColumn {
+                get {
+                    return this.columnAnswerDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NextStageIDColumn {
+                get {
+                    return this.columnNextStageID;
                 }
             }
             
@@ -473,15 +483,16 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AnswerRow AddAnswerRow(string AnswerDescription, StageRow parentStageRowByStageAnswer, int nextStageID) {
+            public AnswerRow AddAnswerRow(StageRow parentStageRowByFK_Answer_Stage, string AnswerName, string AnswerDescription, int NextStageID) {
                 AnswerRow rowAnswerRow = ((AnswerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        AnswerDescription,
                         null,
-                        nextStageID};
-                if ((parentStageRowByStageAnswer != null)) {
-                    columnValuesArray[2] = parentStageRowByStageAnswer[0];
+                        AnswerName,
+                        AnswerDescription,
+                        NextStageID};
+                if ((parentStageRowByFK_Answer_Stage != null)) {
+                    columnValuesArray[1] = parentStageRowByFK_Answer_Stage[0];
                 }
                 rowAnswerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAnswerRow);
@@ -513,9 +524,10 @@ namespace InRealLife_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnAnswerID = base.Columns["AnswerID"];
-                this.columnAnswerDescription = base.Columns["AnswerDescription"];
                 this.columnStageID = base.Columns["StageID"];
-                this.columnnextStageID = base.Columns["nextStageID"];
+                this.columnAnswerName = base.Columns["AnswerName"];
+                this.columnAnswerDescription = base.Columns["AnswerDescription"];
+                this.columnNextStageID = base.Columns["NextStageID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,20 +535,25 @@ namespace InRealLife_2 {
             private void InitClass() {
                 this.columnAnswerID = new global::System.Data.DataColumn("AnswerID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAnswerID);
-                this.columnAnswerDescription = new global::System.Data.DataColumn("AnswerDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAnswerDescription);
                 this.columnStageID = new global::System.Data.DataColumn("StageID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStageID);
-                this.columnnextStageID = new global::System.Data.DataColumn("nextStageID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnextStageID);
+                this.columnAnswerName = new global::System.Data.DataColumn("AnswerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAnswerName);
+                this.columnAnswerDescription = new global::System.Data.DataColumn("AnswerDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAnswerDescription);
+                this.columnNextStageID = new global::System.Data.DataColumn("NextStageID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNextStageID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAnswerID}, true));
                 this.columnAnswerID.AutoIncrement = true;
                 this.columnAnswerID.AutoIncrementSeed = -1;
                 this.columnAnswerID.AutoIncrementStep = -1;
                 this.columnAnswerID.AllowDBNull = false;
+                this.columnAnswerID.ReadOnly = true;
                 this.columnAnswerID.Unique = true;
-                this.columnAnswerDescription.MaxLength = 255;
+                this.columnAnswerName.AllowDBNull = false;
+                this.columnAnswerName.MaxLength = 30;
+                this.columnAnswerDescription.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -604,7 +621,7 @@ namespace InRealLife_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ScenarioDataDataSet ds = new ScenarioDataDataSet();
+                IRL_SQL_DatabaseDataSet ds = new IRL_SQL_DatabaseDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -674,6 +691,8 @@ namespace InRealLife_2 {
             
             private global::System.Data.DataColumn columnScenarioName;
             
+            private global::System.Data.DataColumn columnScenarioDescription;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ScenarioDataTable() {
@@ -725,6 +744,14 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ScenarioDescriptionColumn {
+                get {
+                    return this.columnScenarioDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -760,11 +787,12 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ScenarioRow AddScenarioRow(string ScenarioName) {
+            public ScenarioRow AddScenarioRow(string ScenarioName, string ScenarioDescription) {
                 ScenarioRow rowScenarioRow = ((ScenarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        ScenarioName};
+                        ScenarioName,
+                        ScenarioDescription};
                 rowScenarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowScenarioRow);
                 return rowScenarioRow;
@@ -796,6 +824,7 @@ namespace InRealLife_2 {
             internal void InitVars() {
                 this.columnScenarioID = base.Columns["ScenarioID"];
                 this.columnScenarioName = base.Columns["ScenarioName"];
+                this.columnScenarioDescription = base.Columns["ScenarioDescription"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -805,14 +834,19 @@ namespace InRealLife_2 {
                 base.Columns.Add(this.columnScenarioID);
                 this.columnScenarioName = new global::System.Data.DataColumn("ScenarioName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnScenarioName);
+                this.columnScenarioDescription = new global::System.Data.DataColumn("ScenarioDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScenarioDescription);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnScenarioID}, true));
                 this.columnScenarioID.AutoIncrement = true;
                 this.columnScenarioID.AutoIncrementSeed = -1;
                 this.columnScenarioID.AutoIncrementStep = -1;
                 this.columnScenarioID.AllowDBNull = false;
+                this.columnScenarioID.ReadOnly = true;
                 this.columnScenarioID.Unique = true;
-                this.columnScenarioName.MaxLength = 255;
+                this.columnScenarioName.AllowDBNull = false;
+                this.columnScenarioName.MaxLength = 30;
+                this.columnScenarioDescription.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -880,7 +914,7 @@ namespace InRealLife_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ScenarioDataDataSet ds = new ScenarioDataDataSet();
+                IRL_SQL_DatabaseDataSet ds = new IRL_SQL_DatabaseDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -948,11 +982,13 @@ namespace InRealLife_2 {
             
             private global::System.Data.DataColumn columnStageID;
             
+            private global::System.Data.DataColumn columnScenarioID;
+            
+            private global::System.Data.DataColumn columnStageName;
+            
             private global::System.Data.DataColumn columnAudioFilePath;
             
             private global::System.Data.DataColumn columnImageFilePath;
-            
-            private global::System.Data.DataColumn columnScenarioID;
             
             private global::System.Data.DataColumn columnStageDescription;
             
@@ -999,6 +1035,22 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ScenarioIDColumn {
+                get {
+                    return this.columnScenarioID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StageNameColumn {
+                get {
+                    return this.columnStageName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn AudioFilePathColumn {
                 get {
                     return this.columnAudioFilePath;
@@ -1010,14 +1062,6 @@ namespace InRealLife_2 {
             public global::System.Data.DataColumn ImageFilePathColumn {
                 get {
                     return this.columnImageFilePath;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ScenarioIDColumn {
-                get {
-                    return this.columnScenarioID;
                 }
             }
             
@@ -1066,16 +1110,17 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public StageRow AddStageRow(string AudioFilePath, string ImageFilePath, ScenarioRow parentScenarioRowByScenarioStage, string StageDescription) {
+            public StageRow AddStageRow(ScenarioRow parentScenarioRowByFK_Stage_Scenario, string StageName, string AudioFilePath, string ImageFilePath, string StageDescription) {
                 StageRow rowStageRow = ((StageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        null,
+                        StageName,
                         AudioFilePath,
                         ImageFilePath,
-                        null,
                         StageDescription};
-                if ((parentScenarioRowByScenarioStage != null)) {
-                    columnValuesArray[3] = parentScenarioRowByScenarioStage[0];
+                if ((parentScenarioRowByFK_Stage_Scenario != null)) {
+                    columnValuesArray[1] = parentScenarioRowByFK_Stage_Scenario[0];
                 }
                 rowStageRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStageRow);
@@ -1107,9 +1152,10 @@ namespace InRealLife_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnStageID = base.Columns["StageID"];
+                this.columnScenarioID = base.Columns["ScenarioID"];
+                this.columnStageName = base.Columns["StageName"];
                 this.columnAudioFilePath = base.Columns["AudioFilePath"];
                 this.columnImageFilePath = base.Columns["ImageFilePath"];
-                this.columnScenarioID = base.Columns["ScenarioID"];
                 this.columnStageDescription = base.Columns["StageDescription"];
             }
             
@@ -1118,12 +1164,14 @@ namespace InRealLife_2 {
             private void InitClass() {
                 this.columnStageID = new global::System.Data.DataColumn("StageID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStageID);
+                this.columnScenarioID = new global::System.Data.DataColumn("ScenarioID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScenarioID);
+                this.columnStageName = new global::System.Data.DataColumn("StageName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStageName);
                 this.columnAudioFilePath = new global::System.Data.DataColumn("AudioFilePath", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAudioFilePath);
                 this.columnImageFilePath = new global::System.Data.DataColumn("ImageFilePath", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImageFilePath);
-                this.columnScenarioID = new global::System.Data.DataColumn("ScenarioID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnScenarioID);
                 this.columnStageDescription = new global::System.Data.DataColumn("StageDescription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStageDescription);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1132,10 +1180,13 @@ namespace InRealLife_2 {
                 this.columnStageID.AutoIncrementSeed = -1;
                 this.columnStageID.AutoIncrementStep = -1;
                 this.columnStageID.AllowDBNull = false;
+                this.columnStageID.ReadOnly = true;
                 this.columnStageID.Unique = true;
-                this.columnAudioFilePath.MaxLength = 255;
-                this.columnImageFilePath.MaxLength = 255;
-                this.columnStageDescription.MaxLength = 255;
+                this.columnStageName.AllowDBNull = false;
+                this.columnStageName.MaxLength = 30;
+                this.columnAudioFilePath.MaxLength = 50;
+                this.columnImageFilePath.MaxLength = 50;
+                this.columnStageDescription.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,7 +1254,7 @@ namespace InRealLife_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ScenarioDataDataSet ds = new ScenarioDataDataSet();
+                IRL_SQL_DatabaseDataSet ds = new IRL_SQL_DatabaseDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1289,22 +1340,6 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string AnswerDescription {
-                get {
-                    try {
-                        return ((string)(this[this.tableAnswer.AnswerDescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AnswerDescription\' in table \'Answer\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAnswer.AnswerDescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int StageID {
                 get {
                     try {
@@ -1321,17 +1356,44 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int nextStageID {
+            public string AnswerName {
+                get {
+                    return ((string)(this[this.tableAnswer.AnswerNameColumn]));
+                }
+                set {
+                    this[this.tableAnswer.AnswerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string AnswerDescription {
                 get {
                     try {
-                        return ((int)(this[this.tableAnswer.nextStageIDColumn]));
+                        return ((string)(this[this.tableAnswer.AnswerDescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nextStageID\' in table \'Answer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnswerDescription\' in table \'Answer\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAnswer.nextStageIDColumn] = value;
+                    this[this.tableAnswer.AnswerDescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int NextStageID {
+                get {
+                    try {
+                        return ((int)(this[this.tableAnswer.NextStageIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NextStageID\' in table \'Answer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAnswer.NextStageIDColumn] = value;
                 }
             }
             
@@ -1339,23 +1401,11 @@ namespace InRealLife_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public StageRow StageRow {
                 get {
-                    return ((StageRow)(this.GetParentRow(this.Table.ParentRelations["StageAnswer"])));
+                    return ((StageRow)(this.GetParentRow(this.Table.ParentRelations["FK_Answer_Stage"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["StageAnswer"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Answer_Stage"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsAnswerDescriptionNull() {
-                return this.IsNull(this.tableAnswer.AnswerDescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetAnswerDescriptionNull() {
-                this[this.tableAnswer.AnswerDescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1372,14 +1422,26 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsnextStageIDNull() {
-                return this.IsNull(this.tableAnswer.nextStageIDColumn);
+            public bool IsAnswerDescriptionNull() {
+                return this.IsNull(this.tableAnswer.AnswerDescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetnextStageIDNull() {
-                this[this.tableAnswer.nextStageIDColumn] = global::System.Convert.DBNull;
+            public void SetAnswerDescriptionNull() {
+                this[this.tableAnswer.AnswerDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNextStageIDNull() {
+                return this.IsNull(this.tableAnswer.NextStageIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNextStageIDNull() {
+                this[this.tableAnswer.NextStageIDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1412,12 +1474,7 @@ namespace InRealLife_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ScenarioName {
                 get {
-                    try {
-                        return ((string)(this[this.tableScenario.ScenarioNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ScenarioName\' in table \'Scenario\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableScenario.ScenarioNameColumn]));
                 }
                 set {
                     this[this.tableScenario.ScenarioNameColumn] = value;
@@ -1426,24 +1483,40 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsScenarioNameNull() {
-                return this.IsNull(this.tableScenario.ScenarioNameColumn);
+            public string ScenarioDescription {
+                get {
+                    try {
+                        return ((string)(this[this.tableScenario.ScenarioDescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ScenarioDescription\' in table \'Scenario\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableScenario.ScenarioDescriptionColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetScenarioNameNull() {
-                this[this.tableScenario.ScenarioNameColumn] = global::System.Convert.DBNull;
+            public bool IsScenarioDescriptionNull() {
+                return this.IsNull(this.tableScenario.ScenarioDescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetScenarioDescriptionNull() {
+                this[this.tableScenario.ScenarioDescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public StageRow[] GetStageRows() {
-                if ((this.Table.ChildRelations["ScenarioStage"] == null)) {
+                if ((this.Table.ChildRelations["FK_Stage_Scenario"] == null)) {
                     return new StageRow[0];
                 }
                 else {
-                    return ((StageRow[])(base.GetChildRows(this.Table.ChildRelations["ScenarioStage"])));
+                    return ((StageRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Stage_Scenario"])));
                 }
             }
         }
@@ -1470,6 +1543,33 @@ namespace InRealLife_2 {
                 }
                 set {
                     this[this.tableStage.StageIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ScenarioID {
+                get {
+                    try {
+                        return ((int)(this[this.tableStage.ScenarioIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ScenarioID\' in table \'Stage\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStage.ScenarioIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string StageName {
+                get {
+                    return ((string)(this[this.tableStage.StageNameColumn]));
+                }
+                set {
+                    this[this.tableStage.StageNameColumn] = value;
                 }
             }
             
@@ -1507,22 +1607,6 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ScenarioID {
-                get {
-                    try {
-                        return ((int)(this[this.tableStage.ScenarioIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ScenarioID\' in table \'Stage\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStage.ScenarioIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string StageDescription {
                 get {
                     try {
@@ -1541,11 +1625,23 @@ namespace InRealLife_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ScenarioRow ScenarioRow {
                 get {
-                    return ((ScenarioRow)(this.GetParentRow(this.Table.ParentRelations["ScenarioStage"])));
+                    return ((ScenarioRow)(this.GetParentRow(this.Table.ParentRelations["FK_Stage_Scenario"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ScenarioStage"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Stage_Scenario"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsScenarioIDNull() {
+                return this.IsNull(this.tableStage.ScenarioIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetScenarioIDNull() {
+                this[this.tableStage.ScenarioIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1574,18 +1670,6 @@ namespace InRealLife_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsScenarioIDNull() {
-                return this.IsNull(this.tableStage.ScenarioIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetScenarioIDNull() {
-                this[this.tableStage.ScenarioIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsStageDescriptionNull() {
                 return this.IsNull(this.tableStage.StageDescriptionColumn);
             }
@@ -1599,11 +1683,11 @@ namespace InRealLife_2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AnswerRow[] GetAnswerRows() {
-                if ((this.Table.ChildRelations["StageAnswer"] == null)) {
+                if ((this.Table.ChildRelations["FK_Answer_Stage"] == null)) {
                     return new AnswerRow[0];
                 }
                 else {
-                    return ((AnswerRow[])(base.GetChildRows(this.Table.ChildRelations["StageAnswer"])));
+                    return ((AnswerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Answer_Stage"])));
                 }
             }
         }
@@ -1711,7 +1795,7 @@ namespace InRealLife_2 {
         }
     }
 }
-namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
+namespace DBComm.IRL_SQL_DatabaseDataSetTableAdapters {
     
     
     /// <summary>
@@ -1725,13 +1809,13 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class AnswerTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
@@ -1743,7 +1827,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -1754,7 +1838,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -1774,7 +1858,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -1782,7 +1866,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -1808,7 +1892,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -1831,66 +1915,68 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Answer";
             tableMapping.ColumnMappings.Add("AnswerID", "AnswerID");
-            tableMapping.ColumnMappings.Add("AnswerDescription", "AnswerDescription");
             tableMapping.ColumnMappings.Add("StageID", "StageID");
-            tableMapping.ColumnMappings.Add("nextStageID", "nextStageID");
+            tableMapping.ColumnMappings.Add("AnswerName", "AnswerName");
+            tableMapping.ColumnMappings.Add("AnswerDescription", "AnswerDescription");
+            tableMapping.ColumnMappings.Add("NextStageID", "NextStageID");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Answer` WHERE ((`AnswerID` = ?) AND ((? = 1 AND `AnswerDescription` " +
-                "IS NULL) OR (`AnswerDescription` = ?)) AND ((? = 1 AND `StageID` IS NULL) OR (`S" +
-                "tageID` = ?)) AND ((? = 1 AND `nextStageID` IS NULL) OR (`nextStageID` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Answer] WHERE (([AnswerID] = @Original_AnswerID) AND ((@IsNull_StageID = 1 AND [StageID] IS NULL) OR ([StageID] = @Original_StageID)) AND ([AnswerName] = @Original_AnswerName) AND ((@IsNull_NextStageID = 1 AND [NextStageID] IS NULL) OR ([NextStageID] = @Original_NextStageID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AnswerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AnswerDescription", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AnswerDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnswerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnswerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Answer` (`AnswerDescription`, `StageID`, `nextStageID`) VALUES (?, ?" +
-                ", ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Answer] ([StageID], [AnswerName], [AnswerDescription], [NextStageID]) VALUES (@StageID, @AnswerName, @AnswerDescription, @NextStageID);
+SELECT AnswerID, StageID, AnswerName, AnswerDescription, NextStageID FROM Answer WHERE (AnswerID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AnswerDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnswerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnswerDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Answer` SET `AnswerDescription` = ?, `StageID` = ?, `nextStageID` = ? WHERE ((`AnswerID` = ?) AND ((? = 1 AND `AnswerDescription` IS NULL) OR (`AnswerDescription` = ?)) AND ((? = 1 AND `StageID` IS NULL) OR (`StageID` = ?)) AND ((? = 1 AND `nextStageID` IS NULL) OR (`nextStageID` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Answer] SET [StageID] = @StageID, [AnswerName] = @AnswerName, [AnswerDescription] = @AnswerDescription, [NextStageID] = @NextStageID WHERE (([AnswerID] = @Original_AnswerID) AND ((@IsNull_StageID = 1 AND [StageID] IS NULL) OR ([StageID] = @Original_StageID)) AND ([AnswerName] = @Original_AnswerName) AND ((@IsNull_NextStageID = 1 AND [NextStageID] IS NULL) OR ([NextStageID] = @Original_NextStageID)));
+SELECT AnswerID, StageID, AnswerName, AnswerDescription, NextStageID FROM Answer WHERE (AnswerID = @AnswerID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AnswerDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AnswerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AnswerDescription", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AnswerDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AnswerDescription", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_nextStageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nextStageID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnswerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnswerDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnswerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnswerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextStageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextStageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnswerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AnswerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::InRealLife_2.Properties.Settings.Default.ScenarioDataConnectionString;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DBComm.Properties.Settings.Default.IRL_SQL_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT AnswerID, AnswerDescription, StageID, nextStageID FROM Answer";
+            this._commandCollection[0].CommandText = "SELECT AnswerID, StageID, AnswerName, AnswerDescription, NextStageID FROM dbo.Ans" +
+                "wer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1898,7 +1984,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ScenarioDataDataSet.AnswerDataTable dataTable) {
+        public virtual int Fill(IRL_SQL_DatabaseDataSet.AnswerDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1911,9 +1997,9 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ScenarioDataDataSet.AnswerDataTable GetData() {
+        public virtual IRL_SQL_DatabaseDataSet.AnswerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ScenarioDataDataSet.AnswerDataTable dataTable = new ScenarioDataDataSet.AnswerDataTable();
+            IRL_SQL_DatabaseDataSet.AnswerDataTable dataTable = new IRL_SQL_DatabaseDataSet.AnswerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1921,14 +2007,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet.AnswerDataTable dataTable) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet.AnswerDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet dataSet) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Answer");
         }
         
@@ -1951,31 +2037,29 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AnswerID, string Original_AnswerDescription, global::System.Nullable<int> Original_StageID, global::System.Nullable<int> Original_nextStageID) {
+        public virtual int Delete(int Original_AnswerID, global::System.Nullable<int> Original_StageID, string Original_AnswerName, global::System.Nullable<int> Original_NextStageID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AnswerID));
-            if ((Original_AnswerDescription == null)) {
+            if ((Original_StageID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_StageID.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_AnswerDescription));
-            }
-            if ((Original_StageID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_StageID.Value));
+            if ((Original_AnswerName == null)) {
+                throw new global::System.ArgumentNullException("Original_AnswerName");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_AnswerName));
             }
-            if ((Original_nextStageID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_nextStageID.Value));
+            if ((Original_NextStageID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_NextStageID.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1997,24 +2081,30 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string AnswerDescription, global::System.Nullable<int> StageID, global::System.Nullable<int> nextStageID) {
-            if ((AnswerDescription == null)) {
+        public virtual int Insert(global::System.Nullable<int> StageID, string AnswerName, string AnswerDescription, global::System.Nullable<int> NextStageID) {
+            if ((StageID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StageID.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(AnswerDescription));
-            }
-            if ((StageID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(StageID.Value));
+            if ((AnswerName == null)) {
+                throw new global::System.ArgumentNullException("AnswerName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(AnswerName));
             }
-            if ((nextStageID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(nextStageID.Value));
-            }
-            else {
+            if ((AnswerDescription == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(AnswerDescription));
+            }
+            if ((NextStageID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NextStageID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2036,50 +2126,55 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string AnswerDescription, global::System.Nullable<int> StageID, global::System.Nullable<int> nextStageID, int Original_AnswerID, string Original_AnswerDescription, global::System.Nullable<int> Original_StageID, global::System.Nullable<int> Original_nextStageID) {
-            if ((AnswerDescription == null)) {
+        public virtual int Update(global::System.Nullable<int> StageID, string AnswerName, string AnswerDescription, global::System.Nullable<int> NextStageID, int Original_AnswerID, global::System.Nullable<int> Original_StageID, string Original_AnswerName, global::System.Nullable<int> Original_NextStageID, int AnswerID) {
+            if ((StageID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(StageID.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(AnswerDescription));
-            }
-            if ((StageID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(StageID.Value));
+            if ((AnswerName == null)) {
+                throw new global::System.ArgumentNullException("AnswerName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(AnswerName));
             }
-            if ((nextStageID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(nextStageID.Value));
-            }
-            else {
+            if ((AnswerDescription == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_AnswerID));
-            if ((Original_AnswerDescription == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(AnswerDescription));
+            }
+            if ((NextStageID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NextStageID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_AnswerDescription));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_AnswerID));
             if ((Original_StageID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_StageID.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_StageID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_nextStageID.HasValue == true)) {
+            if ((Original_AnswerName == null)) {
+                throw new global::System.ArgumentNullException("Original_AnswerName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_AnswerName));
+            }
+            if ((Original_NextStageID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_nextStageID.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_NextStageID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(AnswerID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2095,6 +2190,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> StageID, string AnswerName, string AnswerDescription, global::System.Nullable<int> NextStageID, int Original_AnswerID, global::System.Nullable<int> Original_StageID, string Original_AnswerName, global::System.Nullable<int> Original_NextStageID) {
+            return this.Update(StageID, AnswerName, AnswerDescription, NextStageID, Original_AnswerID, Original_StageID, Original_AnswerName, Original_NextStageID, Original_AnswerID);
+        }
     }
     
     /// <summary>
@@ -2108,13 +2211,13 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ScenarioTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
@@ -2126,7 +2229,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -2137,7 +2240,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -2157,7 +2260,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -2165,7 +2268,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -2191,7 +2294,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -2214,51 +2317,55 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Scenario";
             tableMapping.ColumnMappings.Add("ScenarioID", "ScenarioID");
             tableMapping.ColumnMappings.Add("ScenarioName", "ScenarioName");
+            tableMapping.ColumnMappings.Add("ScenarioDescription", "ScenarioDescription");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Scenario` WHERE ((`ScenarioID` = ?) AND ((? = 1 AND `ScenarioName` I" +
-                "S NULL) OR (`ScenarioName` = ?)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Scenario] WHERE (([ScenarioID] = @Original_ScenarioID) AND ([S" +
+                "cenarioName] = @Original_ScenarioName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScenarioName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Scenario` (`ScenarioName`) VALUES (?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Scenario] ([ScenarioName], [ScenarioDescription]) VALUES (@Sce" +
+                "narioName, @ScenarioDescription);\r\nSELECT ScenarioID, ScenarioName, ScenarioDesc" +
+                "ription FROM Scenario WHERE (ScenarioID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScenarioName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `Scenario` SET `ScenarioName` = ? WHERE ((`ScenarioID` = ?) AND ((? = 1 AN" +
-                "D `ScenarioName` IS NULL) OR (`ScenarioName` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Scenario] SET [ScenarioName] = @ScenarioName, [ScenarioDescription] = @ScenarioDescription WHERE (([ScenarioID] = @Original_ScenarioID) AND ([ScenarioName] = @Original_ScenarioName));
+SELECT ScenarioID, ScenarioName, ScenarioDescription FROM Scenario WHERE (ScenarioID = @ScenarioID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScenarioName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScenarioName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioName", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::InRealLife_2.Properties.Settings.Default.ScenarioDataConnectionString;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DBComm.Properties.Settings.Default.IRL_SQL_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ScenarioID, ScenarioName FROM Scenario";
+            this._commandCollection[0].CommandText = "SELECT ScenarioID, ScenarioName, ScenarioDescription FROM dbo.Scenario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2266,7 +2373,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ScenarioDataDataSet.ScenarioDataTable dataTable) {
+        public virtual int Fill(IRL_SQL_DatabaseDataSet.ScenarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2279,9 +2386,9 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ScenarioDataDataSet.ScenarioDataTable GetData() {
+        public virtual IRL_SQL_DatabaseDataSet.ScenarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ScenarioDataDataSet.ScenarioDataTable dataTable = new ScenarioDataDataSet.ScenarioDataTable();
+            IRL_SQL_DatabaseDataSet.ScenarioDataTable dataTable = new IRL_SQL_DatabaseDataSet.ScenarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2289,14 +2396,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet.ScenarioDataTable dataTable) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet.ScenarioDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet dataSet) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Scenario");
         }
         
@@ -2322,12 +2429,10 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         public virtual int Delete(int Original_ScenarioID, string Original_ScenarioName) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ScenarioID));
             if ((Original_ScenarioName == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_ScenarioName");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ScenarioName));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_ScenarioName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2349,12 +2454,18 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ScenarioName) {
+        public virtual int Insert(string ScenarioName, string ScenarioDescription) {
             if ((ScenarioName == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("ScenarioName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ScenarioName));
+            }
+            if ((ScenarioDescription == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ScenarioDescription));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2376,22 +2487,27 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ScenarioName, int Original_ScenarioID, string Original_ScenarioName) {
+        public virtual int Update(string ScenarioName, string ScenarioDescription, int Original_ScenarioID, string Original_ScenarioName, int ScenarioID) {
             if ((ScenarioName == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("ScenarioName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ScenarioName));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ScenarioID));
-            if ((Original_ScenarioName == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((ScenarioDescription == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ScenarioDescription));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ScenarioID));
+            if ((Original_ScenarioName == null)) {
+                throw new global::System.ArgumentNullException("Original_ScenarioName");
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_ScenarioName));
             }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ScenarioID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2407,6 +2523,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string ScenarioName, string ScenarioDescription, int Original_ScenarioID, string Original_ScenarioName) {
+            return this.Update(ScenarioName, ScenarioDescription, Original_ScenarioID, Original_ScenarioName, Original_ScenarioID);
+        }
     }
     
     /// <summary>
@@ -2420,13 +2544,13 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class StageTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
@@ -2438,7 +2562,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -2449,7 +2573,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -2469,7 +2593,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -2477,7 +2601,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -2503,7 +2627,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -2526,72 +2650,75 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Stage";
             tableMapping.ColumnMappings.Add("StageID", "StageID");
+            tableMapping.ColumnMappings.Add("ScenarioID", "ScenarioID");
+            tableMapping.ColumnMappings.Add("StageName", "StageName");
             tableMapping.ColumnMappings.Add("AudioFilePath", "AudioFilePath");
             tableMapping.ColumnMappings.Add("ImageFilePath", "ImageFilePath");
-            tableMapping.ColumnMappings.Add("ScenarioID", "ScenarioID");
             tableMapping.ColumnMappings.Add("StageDescription", "StageDescription");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Stage` WHERE ((`StageID` = ?) AND ((? = 1 AND `AudioFilePath` IS NULL) OR (`AudioFilePath` = ?)) AND ((? = 1 AND `ImageFilePath` IS NULL) OR (`ImageFilePath` = ?)) AND ((? = 1 AND `ScenarioID` IS NULL) OR (`ScenarioID` = ?)) AND ((? = 1 AND `StageDescription` IS NULL) OR (`StageDescription` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Stage] WHERE (([StageID] = @Original_StageID) AND ((@IsNull_ScenarioID = 1 AND [ScenarioID] IS NULL) OR ([ScenarioID] = @Original_ScenarioID)) AND ([StageName] = @Original_StageName) AND ((@IsNull_AudioFilePath = 1 AND [AudioFilePath] IS NULL) OR ([AudioFilePath] = @Original_AudioFilePath)) AND ((@IsNull_ImageFilePath = 1 AND [ImageFilePath] IS NULL) OR ([ImageFilePath] = @Original_ImageFilePath)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AudioFilePath", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AudioFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ImageFilePath", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ImageFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StageDescription", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AudioFilePath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AudioFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ImageFilePath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ImageFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Stage` (`AudioFilePath`, `ImageFilePath`, `ScenarioID`, `StageDescri" +
-                "ption`) VALUES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Stage] ([ScenarioID], [StageName], [AudioFilePath], [ImageFilePath], [StageDescription]) VALUES (@ScenarioID, @StageName, @AudioFilePath, @ImageFilePath, @StageDescription);
+SELECT StageID, ScenarioID, StageName, AudioFilePath, ImageFilePath, StageDescription FROM Stage WHERE (StageID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AudioFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ImageFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StageDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AudioFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImageFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Stage` SET `AudioFilePath` = ?, `ImageFilePath` = ?, `ScenarioID` = ?, `StageDescription` = ? WHERE ((`StageID` = ?) AND ((? = 1 AND `AudioFilePath` IS NULL) OR (`AudioFilePath` = ?)) AND ((? = 1 AND `ImageFilePath` IS NULL) OR (`ImageFilePath` = ?)) AND ((? = 1 AND `ScenarioID` IS NULL) OR (`ScenarioID` = ?)) AND ((? = 1 AND `StageDescription` IS NULL) OR (`StageDescription` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Stage] SET [ScenarioID] = @ScenarioID, [StageName] = @StageName, [AudioFilePath] = @AudioFilePath, [ImageFilePath] = @ImageFilePath, [StageDescription] = @StageDescription WHERE (([StageID] = @Original_StageID) AND ((@IsNull_ScenarioID = 1 AND [ScenarioID] IS NULL) OR ([ScenarioID] = @Original_ScenarioID)) AND ([StageName] = @Original_StageName) AND ((@IsNull_AudioFilePath = 1 AND [AudioFilePath] IS NULL) OR ([AudioFilePath] = @Original_AudioFilePath)) AND ((@IsNull_ImageFilePath = 1 AND [ImageFilePath] IS NULL) OR ([ImageFilePath] = @Original_ImageFilePath)));
+SELECT StageID, ScenarioID, StageName, AudioFilePath, ImageFilePath, StageDescription FROM Stage WHERE (StageID = @StageID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AudioFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ImageFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StageDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AudioFilePath", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AudioFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AudioFilePath", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ImageFilePath", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ImageFilePath", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImageFilePath", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScenarioID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScenarioID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StageDescription", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StageDescription", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StageDescription", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AudioFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImageFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScenarioID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScenarioID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StageName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AudioFilePath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AudioFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AudioFilePath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ImageFilePath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ImageFilePath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImageFilePath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StageID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::InRealLife_2.Properties.Settings.Default.ScenarioDataConnectionString;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DBComm.Properties.Settings.Default.IRL_SQL_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT StageID, AudioFilePath, ImageFilePath, ScenarioID, StageDescription FROM S" +
-                "tage";
+            this._commandCollection[0].CommandText = "SELECT StageID, ScenarioID, StageName, AudioFilePath, ImageFilePath, StageDescrip" +
+                "tion FROM dbo.Stage";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2599,7 +2726,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ScenarioDataDataSet.StageDataTable dataTable) {
+        public virtual int Fill(IRL_SQL_DatabaseDataSet.StageDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2612,9 +2739,9 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ScenarioDataDataSet.StageDataTable GetData() {
+        public virtual IRL_SQL_DatabaseDataSet.StageDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ScenarioDataDataSet.StageDataTable dataTable = new ScenarioDataDataSet.StageDataTable();
+            IRL_SQL_DatabaseDataSet.StageDataTable dataTable = new IRL_SQL_DatabaseDataSet.StageDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2622,14 +2749,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet.StageDataTable dataTable) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet.StageDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScenarioDataDataSet dataSet) {
+        public virtual int Update(IRL_SQL_DatabaseDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Stage");
         }
         
@@ -2652,39 +2779,37 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_StageID, string Original_AudioFilePath, string Original_ImageFilePath, global::System.Nullable<int> Original_ScenarioID, string Original_StageDescription) {
+        public virtual int Delete(int Original_StageID, global::System.Nullable<int> Original_ScenarioID, string Original_StageName, string Original_AudioFilePath, string Original_ImageFilePath) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_StageID));
-            if ((Original_AudioFilePath == null)) {
+            if ((Original_ScenarioID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ScenarioID.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            if ((Original_StageName == null)) {
+                throw new global::System.ArgumentNullException("Original_StageName");
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_AudioFilePath));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_StageName));
+            }
+            if ((Original_AudioFilePath == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_AudioFilePath));
             }
             if ((Original_ImageFilePath == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ImageFilePath));
-            }
-            if ((Original_ScenarioID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ScenarioID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_StageDescription == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_StageDescription));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_ImageFilePath));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2706,30 +2831,36 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string AudioFilePath, string ImageFilePath, global::System.Nullable<int> ScenarioID, string StageDescription) {
-            if ((AudioFilePath == null)) {
+        public virtual int Insert(global::System.Nullable<int> ScenarioID, string StageName, string AudioFilePath, string ImageFilePath, string StageDescription) {
+            if ((ScenarioID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ScenarioID.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(AudioFilePath));
-            }
-            if ((ImageFilePath == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((StageName == null)) {
+                throw new global::System.ArgumentNullException("StageName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ImageFilePath));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(StageName));
             }
-            if ((ScenarioID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ScenarioID.Value));
-            }
-            else {
+            if ((AudioFilePath == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((StageDescription == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(AudioFilePath));
+            }
+            if ((ImageFilePath == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(StageDescription));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ImageFilePath));
+            }
+            if ((StageDescription == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(StageDescription));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2751,64 +2882,69 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string AudioFilePath, string ImageFilePath, global::System.Nullable<int> ScenarioID, string StageDescription, int Original_StageID, string Original_AudioFilePath, string Original_ImageFilePath, global::System.Nullable<int> Original_ScenarioID, string Original_StageDescription) {
-            if ((AudioFilePath == null)) {
+        public virtual int Update(global::System.Nullable<int> ScenarioID, string StageName, string AudioFilePath, string ImageFilePath, string StageDescription, int Original_StageID, global::System.Nullable<int> Original_ScenarioID, string Original_StageName, string Original_AudioFilePath, string Original_ImageFilePath, int StageID) {
+            if ((ScenarioID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ScenarioID.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(AudioFilePath));
-            }
-            if ((ImageFilePath == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((StageName == null)) {
+                throw new global::System.ArgumentNullException("StageName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ImageFilePath));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(StageName));
             }
-            if ((ScenarioID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ScenarioID.Value));
-            }
-            else {
+            if ((AudioFilePath == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((StageDescription == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(AudioFilePath));
+            }
+            if ((ImageFilePath == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(StageDescription));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ImageFilePath));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_StageID));
-            if ((Original_AudioFilePath == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((StageDescription == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_AudioFilePath));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(StageDescription));
             }
-            if ((Original_ImageFilePath == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_ImageFilePath));
-            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_StageID));
             if ((Original_ScenarioID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ScenarioID.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ScenarioID.Value));
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_StageName == null)) {
+                throw new global::System.ArgumentNullException("Original_StageName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_StageName));
+            }
+            if ((Original_AudioFilePath == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_StageDescription == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_AudioFilePath));
+            }
+            if ((Original_ImageFilePath == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_StageDescription));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ImageFilePath));
             }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(StageID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2823,6 +2959,14 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ScenarioID, string StageName, string AudioFilePath, string ImageFilePath, string StageDescription, int Original_StageID, global::System.Nullable<int> Original_ScenarioID, string Original_StageName, string Original_AudioFilePath, string Original_ImageFilePath) {
+            return this.Update(ScenarioID, StageName, AudioFilePath, ImageFilePath, StageDescription, Original_StageID, Original_ScenarioID, Original_StageName, Original_AudioFilePath, Original_ImageFilePath, Original_StageID);
         }
     }
     
@@ -2963,7 +3107,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(ScenarioDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(IRL_SQL_DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._scenarioTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Scenario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -3000,7 +3144,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(ScenarioDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(IRL_SQL_DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._scenarioTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Scenario.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -3034,7 +3178,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(ScenarioDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(IRL_SQL_DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._answerTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Answer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -3092,7 +3236,7 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(ScenarioDataDataSet dataSet) {
+        public virtual int UpdateAll(IRL_SQL_DatabaseDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
@@ -3148,8 +3292,8 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 //
                 if ((this._answerTableAdapter != null)) {
                     revertConnections.Add(this._answerTableAdapter, this._answerTableAdapter.Connection);
-                    this._answerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._answerTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    this._answerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._answerTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
                     if (this._answerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._answerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._answerTableAdapter.Adapter);
@@ -3157,8 +3301,8 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
                 if ((this._scenarioTableAdapter != null)) {
                     revertConnections.Add(this._scenarioTableAdapter, this._scenarioTableAdapter.Connection);
-                    this._scenarioTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._scenarioTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    this._scenarioTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._scenarioTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
                     if (this._scenarioTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._scenarioTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._scenarioTableAdapter.Adapter);
@@ -3166,8 +3310,8 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                 }
                 if ((this._stageTableAdapter != null)) {
                     revertConnections.Add(this._stageTableAdapter, this._stageTableAdapter.Connection);
-                    this._stageTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._stageTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    this._stageTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._stageTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
                     if (this._stageTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._stageTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._stageTableAdapter.Adapter);
@@ -3232,15 +3376,15 @@ namespace InRealLife_2.ScenarioDataDataSetTableAdapters {
                     workConnection.Close();
                 }
                 if ((this._answerTableAdapter != null)) {
-                    this._answerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._answerTableAdapter]));
+                    this._answerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._answerTableAdapter]));
                     this._answerTableAdapter.Transaction = null;
                 }
                 if ((this._scenarioTableAdapter != null)) {
-                    this._scenarioTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._scenarioTableAdapter]));
+                    this._scenarioTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._scenarioTableAdapter]));
                     this._scenarioTableAdapter.Transaction = null;
                 }
                 if ((this._stageTableAdapter != null)) {
-                    this._stageTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._stageTableAdapter]));
+                    this._stageTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._stageTableAdapter]));
                     this._stageTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {

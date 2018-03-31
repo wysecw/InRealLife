@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Data.OleDb;
 using Classes;
 using System.Collections;
 
@@ -26,36 +25,47 @@ namespace InRealLife_2
     public class DBComm
     {
         // CONSTANT storing the connection string
-        public const string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ScenarioData.accdb";
+        public const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\IRL_SQL_Database.mdf;Integrated Security=True";
 
         // create new connection
-        OleDbConnection conn = new OleDbConnection(connectionString);
+        SqlConnection conn = new SqlConnection(connectionString);
 
         // method to grab all data from scenario table on the database
         public DataTable displayAllScenarios()
         {
-            DataTable dt = new DataTable();
-            String query = "SELECT * FROM Scenario";
+            // create new data table
+            DataTable scenarioDataTable = new DataTable();
+
+            // query string to display scenarios
+            String displayScenariosQuery = "SELECT * FROM Scenario";
+
             using (conn)
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
+            using (SqlCommand sqlCommand = new SqlCommand(displayScenariosQuery, conn))
             {
+                // reinitialize connection string
                 conn.ConnectionString = connectionString;
+
+                // open connection
                 conn.Open();
-                adapter.Fill(dt);
-                return dt;
+
+                // load data table
+                scenarioDataTable.Load(sqlCommand.ExecuteReader());
+
+                return scenarioDataTable;
             }
         }
 
         // method to delete a scenario from scenario table on the database
         public int DeleteSelectedScenario(int scenarioID)
         {
+            // create return variable
             int scenarioRowsDeleted = 0;
 
-            // set query string
+            // set DELETE query string
             String deleteQuery = "DELETE * FROM Scenario WHERE ScenarioID =" + scenarioID;
             
             using (conn)
-            using (OleDbCommand DeleteCmd = new OleDbCommand(deleteQuery, conn))
+            using (SqlCommand DeleteCmd = new SqlCommand(deleteQuery, conn))
             {
                 // reinitialize connection string
                 conn.ConnectionString = connectionString;
